@@ -40,8 +40,7 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
     { value: 'PDF', label: 'PDF Document' },
     { value: 'DOCX', label: 'DOCX (Word)' },
     { value: 'VIDEO', label: 'Video File' },
-    { value: 'PRESENTATION', label: 'Presentation' },
-    { value: 'EBOOK', label: 'E-Book' },
+    { value: 'PRESENTATION', label: 'Presentation' }
   ] as const;
 
   // Helpers
@@ -51,7 +50,6 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
       case 'DOCX': return <FileText className="h-5 w-5 text-blue-500" />;
       case 'VIDEO': return <Video className="h-5 w-5 text-purple-500" />;
       case 'PRESENTATION': return <Presentation className="h-5 w-5 text-orange-500" />;
-      case 'EBOOK': return <BookOpen className="h-5 w-5 text-green-500" />;
       default: return <File className="h-5 w-5 text-gray-500" />;
     }
   };
@@ -62,7 +60,6 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
       case 'DOCX': return '.docx,.doc';
       case 'VIDEO': return '.mp4,.webm,.avi,.mov';
       case 'PRESENTATION': return '.ppt,.pptx,.key';
-      case 'EBOOK': return '.epub,.mobi';
       default: return ".pdf,.docx,.doc,.ppt,.pptx,.mp4,.webm,.avi,.mov,.key,.epub,.mobi";
     }
   };
