@@ -24,7 +24,7 @@ const EnrollCardsPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCard, setEditingCard] = useState<EnrollCard | null>(null);
   const [deletingCard, setDeletingCard] = useState<EnrollCard | null>(null);
-  const [viewingCard, setViewingCard] = useState<EnrollCard | null>(null);
+  const [, setViewingCard] = useState<EnrollCard | null>(null);
 
   // Filter/Sort States
   const [searchTerm, setSearchTerm] = useState('');

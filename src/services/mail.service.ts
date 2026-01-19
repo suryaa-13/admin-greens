@@ -3,7 +3,7 @@ import axios from 'axios';
 import type { MailActionPayload } from '../types/index';
 
 // Backend URL pointing to Port 3000
-const BASE_URL = 'http://localhost:3000/api/mail';
+const BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/api/mail`;
 
 export const mailService = {
   /**

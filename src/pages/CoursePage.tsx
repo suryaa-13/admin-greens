@@ -118,7 +118,13 @@ const handleDelete = async (course: Course) => {
           <p className="text-gray-400 text-[11px] font-bold uppercase tracking-[0.2em] mt-1">Management Portal</p>
         </div>
         <div className="flex gap-3">
-          <button onClick={fetchCourses} className="p-3 border border-gray-200 rounded-xl hover:bg-white hover:shadow-md transition-all active:rotate-180 duration-500"><RefreshCw size={20}/></button>
+<button 
+  onClick={fetchCourses} 
+  disabled={loading} // Now 'loading' is being read!
+  className={`p-3 border border-gray-200 rounded-xl hover:bg-white transition-all ${loading ? 'opacity-50' : 'active:rotate-180 duration-500'}`}
+>
+  <RefreshCw size={20} className={loading ? 'animate-spin' : ''}/>
+</button>
           <button onClick={() => { setSelectedCourse(null); setIsModalOpen(true); }} className="bg-black text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-xl active:scale-95 transition-all">
             <Plus size={18} strokeWidth={3}/> Add Course
           </button>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
-  Upload, X, Trash2, FileText, Video, 
-  Presentation, BookOpen, File, ChevronDown, Check, Image as ImageIcon 
+  Upload, X, FileText, 
+  Presentation, File, ChevronDown, Image as ImageIcon 
 } from 'lucide-react';
 import type { StudyMaterial } from '../../types';
 import { IMAGE_URL } from '../../utils/storage';
@@ -39,7 +39,6 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
   const fileTypes = [
     { value: 'PDF', label: 'PDF Document' },
     { value: 'DOCX', label: 'DOCX (Word)' },
-    { value: 'VIDEO', label: 'Video File' },
     { value: 'PRESENTATION', label: 'Presentation' }
   ] as const;
 
@@ -48,7 +47,6 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
     switch (type) {
       case 'PDF': return <FileText className="h-5 w-5 text-red-500" />;
       case 'DOCX': return <FileText className="h-5 w-5 text-blue-500" />;
-      case 'VIDEO': return <Video className="h-5 w-5 text-purple-500" />;
       case 'PRESENTATION': return <Presentation className="h-5 w-5 text-orange-500" />;
       default: return <File className="h-5 w-5 text-gray-500" />;
     }
@@ -58,9 +56,8 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
     switch (type) {
       case 'PDF': return '.pdf';
       case 'DOCX': return '.docx,.doc';
-      case 'VIDEO': return '.mp4,.webm,.avi,.mov';
       case 'PRESENTATION': return '.ppt,.pptx,.key';
-      default: return ".pdf,.docx,.doc,.ppt,.pptx,.mp4,.webm,.avi,.mov,.key,.epub,.mobi";
+      default: return ".pdf,.docx,.doc,.ppt,.pptx,.key,.epub,.mobi";
     }
   };
 
@@ -75,7 +72,7 @@ const StudyMaterialForm: React.FC<StudyMaterialFormProps> = ({ material, onSubmi
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 

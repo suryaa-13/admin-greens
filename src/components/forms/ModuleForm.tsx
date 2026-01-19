@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Book, Hash, SortAsc, Layers, Plus, 
-  Trash2, Edit2, X, Save, AlertCircle, 
-  CheckCircle2, ChevronRight 
+  Book, Hash, Layers, Plus, 
+  Trash2, Edit2, X, AlertCircle, 
+  CheckCircle2 
 } from 'lucide-react';
 import type { Module, ModuleTopic } from '../../types/index';
 
@@ -212,8 +212,8 @@ const ModuleForm: React.FC<ModuleFormProps> = ({ module, onSubmit, onCancel }) =
 
             {/* Topic Display List */}
             <div className="lg:col-span-3 space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-              {topics.sort((a,b) => a.order - b.order).map((topic, index) => (
-                <div key={topic.id} className={`group flex items-center justify-between p-4 bg-white border rounded-xl transition-all ${editingTopic?.id === topic.id ? 'ring-2 ring-orange-400 border-transparent shadow-md' : 'border-gray-100 hover:border-purple-200 hover:shadow-sm'}`}>
+              {topics.sort((a,b) => a.order - b.order).map((topic, _index) => (
+                <div key={topic.id}  className={`group flex items-center justify-between p-4 bg-white border rounded-xl transition-all ${editingTopic?.id === topic.id ? 'ring-2 ring-orange-400 border-transparent shadow-md' : 'border-gray-100 hover:border-purple-200 hover:shadow-sm'}`}>
                   <div className="flex items-center gap-4">
                     <div className="text-xs font-black text-gray-300 group-hover:text-purple-400 transition-colors">{topic.order}</div>
                     <div>

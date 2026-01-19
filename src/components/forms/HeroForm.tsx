@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Plus, X, Image as ImageIcon, Layout, 
-  Type, AlignLeft, Hash, Trash2, Save, Eye, EyeOff
+  Plus, X, Layout, 
+  Type, AlignLeft, Hash, Trash2, Eye, EyeOff
 } from 'lucide-react';
 import { IMAGE_URL } from '../../utils/storage';
 import type { Hero } from '../../types';

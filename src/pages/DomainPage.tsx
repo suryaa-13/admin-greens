@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Plus, Search, Edit2, Trash2, Power, RotateCw, ChevronLeft, ChevronRight, CheckCircle, AlertCircle, Layers, Youtube } from 'lucide-react';
+import { Plus, Search, Edit2, Trash2, RotateCw, ChevronLeft, ChevronRight, CheckCircle, AlertCircle, Layers, Youtube } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { domainService } from '../services/domain.service';
 import { IMAGE_URL } from '../utils/storage';

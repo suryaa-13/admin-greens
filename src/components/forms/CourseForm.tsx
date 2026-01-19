@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, X, Hash, DollarSign, Clock } from 'lucide-react';
+import { Upload, X, Hash, Clock } from 'lucide-react';
 import type { Course } from '../../types/index';
 import { IMAGE_URL } from '../../utils/storage';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Plus, X, Image as ImageIcon, Layout, 
-  Type, AlignLeft, Hash, Save, Eye, EyeOff, Layers
+  Plus, X,  Layout, 
+  Type, AlignLeft, Hash, Eye, EyeOff, Layers
 } from 'lucide-react';
 import { IMAGE_URL } from '../../utils/storage';
 import type { About } from '../../types';

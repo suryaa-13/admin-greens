@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Trash2, Hash, Save, Loader2 } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2 } from 'lucide-react';
 import { faqChatService } from '../../services/faq.service'; // 👈 Import the service
 import type { FAQBulkRequest } from '../../types/index';
 import toast from 'react-hot-toast';

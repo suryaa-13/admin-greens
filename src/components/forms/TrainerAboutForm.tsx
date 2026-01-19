@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, X, Plus, Link as LinkIcon, Trash2, User, Info } from 'lucide-react';
+import { Upload, X,  Trash2 } from 'lucide-react';
 import type { TrainerAbout } from '../../types/index';
 import { IMAGE_URL } from '../../utils/storage';
 

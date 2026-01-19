@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
-import { Upload, X, Hash, Cpu, Plus, Trash2 } from 'lucide-react';
-import type { Project, ProjectTech } from '../../types/index';
+import React, { useState } from 'react';
+import { Upload, X, Hash, Cpu, Plus } from 'lucide-react';
+import type { Project } from '../../types/index';
 import { IMAGE_URL } from '../../utils/storage';
 
 interface ProjectFormProps {

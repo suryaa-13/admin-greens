@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, X, Hash, Globe, Info, Upload, CheckCircle2, Type, DollarSign, Youtube } from 'lucide-react';
+import { Image, X, Hash, Globe, Info, Upload, CheckCircle2, Type, Youtube } from 'lucide-react';
 import type { Domain } from '../../types/index';
 import { IMAGE_URL } from '../../utils/storage';
 

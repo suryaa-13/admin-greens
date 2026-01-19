@@ -357,69 +357,87 @@ const columns: CertificateColumn[] = [
       </div>
 
       {/* Search and Filter Bar */}
-      <div className="mb-6 rounded-lg bg-white p-4 shadow-sm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <input
-              type="search"
-              placeholder="Search by section title or step content..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
-          
-     <div className="relative" ref={dropdownRef}>
-  <button 
-    onClick={() => setIsStatusOpen(!isStatusOpen)}
-    className="flex items-center gap-3 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:border-indigo-300 hover:shadow-sm transition-all min-w-[160px]"
-  >
-    {/* Dynamic Icon based on selection */}
-    <div className={`w-2 h-2 rounded-full ${
-      statusFilter === 'active' ? 'bg-emerald-500' : 
-      statusFilter === 'inactive' ? 'bg-rose-500' : 'bg-gray-300'
-    }`} />
+   <div className="mb-6 rounded-lg bg-white p-4 shadow-sm border border-gray-100">
+  <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
     
-    <span className="flex-1 text-left capitalize">
-      {statusFilter === 'all' ? 'All Status' : `${statusFilter} Only`}
-    </span>
-    
-    <ChevronDown size={16} className={`text-gray-400 transition-transform duration-200 ${isStatusOpen ? 'rotate-180' : ''}`} />
-  </button>
-
-  {/* Dropdown Menu */}
-  {isStatusOpen && (
-    <div className="absolute right-0 mt-2 w-full min-w-[180px] bg-white border border-gray-100 rounded-2xl shadow-xl p-1.5 z-50 animate-in fade-in zoom-in-95 duration-100">
-      {[
-        { id: 'all', label: 'All Status', color: 'bg-gray-400' },
-        { id: 'active', label: 'Active Only', color: 'bg-emerald-500' },
-        { id: 'inactive', label: 'Inactive Only', color: 'bg-rose-500' }
-      ].map((option) => (
-        <button
-          key={option.id}
-          onClick={() => {
-            setStatusFilter(option.id);
-            setIsStatusOpen(false);
-          }}
-          className={`flex items-center justify-between w-full px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
-            statusFilter === option.id 
-              ? 'bg-indigo-50 text-indigo-600' 
-              : 'text-gray-600 hover:bg-gray-50'
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <div className={`w-1.5 h-1.5 rounded-full ${option.color}`} />
-            {option.label}
-          </div>
-          {statusFilter === option.id && <Check size={14} strokeWidth={3} />}
-        </button>
-      ))}
+    {/* 1. Search Input */}
+    <div className="relative flex-1">
+      <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+      <input
+        type="search"
+        placeholder="Search by section title or step content..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/5 transition-all"
+      />
     </div>
-  )}
-</div>
-        </div>
+
+    {/* 2. Filter Group */}
+    <div className="flex flex-wrap items-center gap-3">
+      
+      {/* Domain Filter */}
+      <div className="flex items-center gap-2">
+        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Domain:</label>
+        <select 
+          value={filterDomain}
+          onChange={(e) => setFilterDomain(e.target.value)}
+          className="rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-bold text-gray-700 outline-none focus:border-indigo-500 transition-all"
+        >
+          <option value="all">All Domains</option>
+          <option value="0">Landing Page</option>
+          <option value="1">Domain 1</option>
+          <option value="2">Domain 2</option>
+        </select>
       </div>
+
+      {/* Course Filter */}
+      <div className="flex items-center gap-2">
+        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Course:</label>
+        <select 
+          value={filterCourse}
+          onChange={(e) => setFilterCourse(e.target.value)}
+          className="rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-bold text-gray-700 outline-none focus:border-indigo-500 transition-all"
+        >
+          <option value="all">All Courses</option>
+          <option value="1">Course 1</option>
+          <option value="2">Course 2</option>
+        </select>
+      </div>
+
+      {/* Status Filter Dropdown (Your existing logic) */}
+      <div className="relative" ref={dropdownRef}>
+        <button 
+          onClick={() => setIsStatusOpen(!isStatusOpen)}
+          className="flex items-center gap-3 px-4 py-2 bg-white border border-gray-200 rounded-xl text-xs font-bold text-gray-700 hover:border-indigo-300 transition-all min-w-[140px]"
+        >
+          <div className={`w-1.5 h-1.5 rounded-full ${
+            statusFilter === 'active' ? 'bg-emerald-500' : 
+            statusFilter === 'inactive' ? 'bg-rose-500' : 'bg-gray-300'
+          }`} />
+          <span className="flex-1 text-left capitalize">{statusFilter} Status</span>
+          <ChevronDown size={14} className={isStatusOpen ? 'rotate-180' : ''} />
+        </button>
+
+        {isStatusOpen && (
+          <div className="absolute right-0 mt-2 w-full min-w-[160px] bg-white border border-gray-100 rounded-2xl shadow-xl p-1 z-50">
+            {['all', 'active', 'inactive'].map((opt) => (
+              <button
+                key={opt}
+                onClick={() => { setStatusFilter(opt); setIsStatusOpen(false); }}
+                className={`flex items-center justify-between w-full px-3 py-2 rounded-lg text-xs font-bold ${
+                  statusFilter === opt ? 'bg-indigo-50 text-indigo-600' : 'text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                {opt.charAt(0).toUpperCase() + opt.slice(1)}
+                {statusFilter === opt && <Check size={12} />}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* Loading State */}
       {loading ? (
