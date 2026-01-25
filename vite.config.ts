@@ -8,7 +8,7 @@ export default defineConfig({
     port: 5174,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://greenstechnology.echodemo.site:5000',
         changeOrigin: true,
         secure: false,
       },
